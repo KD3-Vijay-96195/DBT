@@ -1,0 +1,64 @@
+/*
+     Q8. Write a program to read the name of a student (studentName), roll
+         Number (rollNo) and marks (totalMarks) obtained. rollNo may be an
+         alphanumeric string. Display the data as read. 
+         
+         Hint: Create a Student structure and write appropriate functions.
+*/
+
+import java.util.Scanner;
+
+class Student
+{
+    String studentName;
+    String rollNo;
+    double totalMarks;
+
+    Student(String name, String roll, double marks)
+    {
+        studentName = name;
+        rollNo = roll;
+        totalMarks = marks;
+    }
+
+    void display()
+    {
+        System.out.println("\nStudent Details: ");
+
+        System.out.println("Name   :"+studentName);
+
+        System.out.println("Roll No  :"+rollNo);
+        
+        System.out.println("Total Marks: "+totalMarks);
+    }
+
+}
+
+public class Q8_StudentDetails 
+{
+    public static void main(String[] args)
+    {
+
+    Scanner sc = new Scanner(System.in);
+
+    System.out.println("Enter Student Name: ");
+    String name = sc.next();
+
+    System.out.println("Enter Roll NO: ");
+    String roll = sc.next();
+
+    System.out.println("enter Total Marks: ");
+    double marks = sc.nextDouble();
+
+    Student s = new Student(name, roll, marks);
+
+    s.display();
+
+    sc.close();
+
+    }
+
+
+    
+    
+}

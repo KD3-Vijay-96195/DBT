@@ -1,0 +1,108 @@
+/*
+    Q6. Write a program to perform matrix multiplication.
+*/
+
+
+import java.util.Scanner;
+
+public class Q6_MatrixMultiplication 
+{
+
+    static int[][] matrixMulti(int[][] a, int[][] b, int r1, int c1, int r2, int c2)
+    {
+        int[][] result = new int[r1][c2];
+        
+        for(int i=0; i < r1; i++)
+        {
+            for(int j=0; j < c2; j++)
+            {
+                for(int k = 0; k < c1; k++)
+                {
+                    result[i][j] = result[i][j] + a[i][k] * b[k][j];
+                }
+            }
+        }
+
+        return result;
+
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Rows and Columns number of matrix A: ");
+        int r1 = sc.nextInt();
+        int c1 = sc.nextInt();
+
+        System.out.println("Enter rows and columns of matrix B: ");
+        int r2 = sc.nextInt();
+        int c2 = sc.nextInt();
+
+        if(c1 != r2)
+        {
+            System.out.println("Matrix Multiplication NOT Possible.");
+            sc.close();
+            return;
+        }
+
+        else
+        {
+            int[][] A = new int[r1][c1];
+
+            int[][] B = new int[r2][c2];
+
+            // enter matrix A
+
+            System.out.println("Enter matrix A data: ");
+
+            for(int i = 0; i < r1; i++)
+            {
+                for(int j = 0; j < c1; j++)
+                {
+                    System.out.printf("A[%d][%d] : ", i, j);
+
+                    A[i][j] = sc.nextInt();
+                }
+            }
+
+            System.out.println();  //output separation
+
+            // enter matrix B
+
+            System.out.println("Enter matrix B data: ");
+
+            for(int i = 0; i < r2; i++)
+            {
+                for(int j = 0; j < c2; j++)
+                {
+                     System.out.printf("B[%d][%d] : ", i, j);
+                    B[i][j] = sc.nextInt();
+                }
+            }
+
+            System.out.println("\n"); //output separation.
+
+
+            int[][] result = matrixMulti(A, B, r1, c1, r2, c2);
+
+            System.out.println("Result matrix is:\n");
+
+           for(int i = 0; i < r1; i++)
+           {
+              for(int j = 0; j < c2; j++)
+              {
+                System.out.print(result[i][j]+"  ");
+
+              }
+              System.out.println(); // just for separation in output
+            
+           }
+
+            sc.close();
+        }
+
+        
+
+    }
+    
+}
